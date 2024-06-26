@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meine App - Demnächst verfügbar!</title>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Meine App</h1>
+
+    </header>
+
+    <main>
+
+
+        <section class="hero">
+
+            <img src="app-icon.png" alt="App-Symbol"> <h2>Bald verfügbar!</h2>
+
+            <p>Starte deine Reise mit meiner App am 5. Juli.</p>
+
+        </section>
+
+        <section class="countdown">
+
+            <h2>Countdown bis zum Launch</h2>
+
+            <div id="timer"></div>
+
+        </section>
+
+        <section class="app-description">
+
+    <h2>App Beschreibung</h2>
+
+    <p>Mit dieser App meisterst du den Schulalltag! Organisiere deine Aufgaben, lerne effektiv und bleibe mit deinen Klassenkameraden in Verbindung.</p>
+
+    <ul>
+
+        <li>Hausaufgaben und Termine im Blick behalten</li>
+
+        <li>Notizen und Lernunterlagen erstellen und teilen</li>
+
+        <li>Lerngruppen bilden und online zusammenarbeiten</li>
+
+        <li>Fortschritte verfolgen und motiviert bleiben</li>
+
+    </ul>
+
+    <a href="#" class="button">Jetzt anmelden!</a> 
+        </section>
+    </main>
+
+    <footer>
+
+        <p>&copy; 2024 Deine Name/Dein Unternehmen</p>
+
+    </footer>
+
+    <script>
+      // ... (vorhandener Code)
+
+// Funktion zum Aktualisieren der Zeit (alle 1 Sekunde aufrufen)
+
+const updateTime = () => {
+
+    const now = new Date(); // Aktuelle Zeit holen
+
+    const targetTime = new Date("2024-07-05"); // Zielzeitpunkt (hier unverändert)
+
+    // Zeitdifferenz berechnen (in Millisekunden)
+
+    const timeToGo = targetTime.getTime() - now.getTime();
+
+    // Falls Zielzeitpunkt in der Vergangenheit liegt
+
+    if (timeToGo <= 0) {
+
+        document.getElementById("timer").innerHTML = "App verfügbar!";
+
+        clearInterval(timerInterval); // Timer stoppen
+
+        return; // Funktion beenden
+
+    }
+
+    // Berechnung der Zeiteinheiten
+
+    const days = Math.floor(timeToGo / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor((timeToGo / (1000 * 60 * 60)) % 24);
+
+    const minutes = Math.floor((timeToGo / (1000 * 60)) % 60);
+
+    const seconds = Math.floor((timeToGo / 1000) % 60);
+
+    // Ausgabe der formatierten Zeit
+
+    document.getElementById("timer").innerHTML = 
+
+        days + " Tage " + hours + " Stunden " + minutes + " Minuten " + seconds + " Sekunden";
+
+};
+
+// Timer alle 1 Sekunde aktualisieren
+
+const timerInterval = setInterval(updateTime, 1000);
+
+// ... (restlicher Code)
+
+
+    </script>
+    <style>
+    body {
+
+    font-family: sans-serif;
+
+    margin: 0;
+
+    padding: 0;
+
+    background-color: #f0f0f0;
+
+}
+
+header {
+
+    background-color: #333;
+
+    color: #fff;
+
+    text-align: center;
+
+    padding: 1em 0;
+
+}
+
+h1 {
+
+    margin: 0;
+
+}
+
+.hero {
+
+    text-align: center;
+
+    padding: 2em 0;
+
+}
+
+.hero img {
+
+    width: 200px; /* Passe die Größe des App-Symbols an */
+
+    margin-bottom: 20px;
+
+}
+
+.countdown {
+
+    background-color: #fff;
+
+    padding: 2em;
+
+    text-align: center;
+
+}
+
+#timer {
+
+    font-size: 3em;
+
+    font-weight: bold;
+
+}
+
+.app-description {
+
+    background-color: #f8f8f8;
+
+    padding: 2em;
+
+    text-align: center;
+
+}
+
+.app-description h2 {
+
+    margin-bottom: 1em;
+
+}
+
+.app-description ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+.app-description li {
+
+    margin-bottom: 1em;
+
+}
+
+.app-description .button {
+
+    background-color: #4CAF50; /* Farbe anpassen */
+
+    color: white;
+
+    padding: 1em 2em;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+}
+
+.app-description .button:hover {
+
+    background-color: #45a049; /* Hover-Farbe anpassen */
+
+}
+
+
+    </style>
+
+</body>
+
+</html>
+
